@@ -5,5 +5,8 @@
   "main": "index.js",
   "repository": "https://github.com/e113s/chat-eando.git",
   "author": "Elles",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "react": "16.1.1"
+  }
 }
