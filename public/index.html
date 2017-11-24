@@ -7,11 +7,14 @@
         <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
     </head>
     <body>
-        <script src="../node_modules/react/umd/react.development.js"></script>
-        <script>
-            console.log(React.createElement('h1', null, "Hello From React!"));
-        </script>
         <img src="assets/icon.png" id="test-image">
         <h1>Hello World!</h1>
+        <div id="root"></div>
+        <script src="../node_modules/react/umd/react.development.js"></script>
+        <script src="../node_modules/react-dom/umd/react-dom.development.js"></script>
+        <script>
+            ReactDOM.render(React.createElement('h1', null, 'Hello from React!'),
+            document.getElementById("root"));
+        </script>
     </body>
 </html>
