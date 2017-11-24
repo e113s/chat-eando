@@ -1,0 +1,9 @@
+{
+  "name": "chat-eando",
+  "version": "1.0.0",
+  "description": "PWA con React 16",
+  "main": "index.js",
+  "repository": "https://github.com/e113s/chat-eando.git",
+  "author": "Elles",
+  "license": "MIT"
+}
