@@ -7,7 +7,7 @@
   "author": "Elles",
   "license": "MIT",
   "scripts": {
-    "build": "node_modules/.bin/webpack --config webpack.config.prod.js",
+    "build": "node scripts/copy_assets.js && node_modules/.bin/webpack --config webpack.config.prod.js",
     "start": "node_modules/.bin/webpack-dev-server"
   },
   "dependencies": {
