@@ -32,7 +32,8 @@ module.exports = {
                     name: 'static/media/[name].[text]'
                 }
             }
-        ]
+        ] 
+        
     },
     plugins: [
         new webpack.DefinePlugin({
