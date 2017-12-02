@@ -1,4 +1,5 @@
 var webpack = require('webpack');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
     entry: __dirname + "/src/index.js",
     output: {
@@ -16,6 +17,13 @@ module.exports = {
                     presets: ['es2015', 'react'],
                     plugins: ['react-hot-loader/babel','transform-class-properties']
                 }
+            },
+            {
+                test: /\.css$/,
+                use: [
+                    {'loader': "style-loader"},
+                    {'loader': "css-loader"}
+                ]
             }
         ]
     },
@@ -25,6 +33,32 @@ module.exports = {
                 NODE_ENV: JSON.stringify('production')
             }
         }),
+        new HtmlWebpackPlugin({
+            inject: true,
+            template: __dirname + "/public/index.html",
+            minify: {
+                removeComments: true,
+                collapseWhitespace: true,
+                removeRedundantAttributes: true,
+                useShortDoctype: true,
+                removeEmptyAttributes: true,
+                removeStyleLinkTypeAttributes: true,
+                keepClosingSlash: true,
+                minifyJS: true,
+                minifyCSS: true,
+                minifyURLs: true,
+            },
+        }),
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                warnings: false,
+                reduce_vars: false,
+            },
+            output: {
+                comments: false
+            },
+            sourceMap: true
+        })
     ],
     devServer: {
         contentBase: "./public",
