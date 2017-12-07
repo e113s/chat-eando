@@ -1,5 +1,7 @@
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var ManifestPlugin = require('webpack-manifest-plugin');
+
 module.exports = {
     entry: __dirname + "/src/index.js",
     output: {
@@ -33,7 +35,7 @@ module.exports = {
                 }
             }
         ] 
-        
+
     },
     plugins: [
         new webpack.DefinePlugin({
@@ -66,6 +68,9 @@ module.exports = {
                 comments: false
             },
             sourceMap: true
+        }),
+        new ManifestPlugin({
+            fileName: 'asset.manifest.json'
         })
     ],
     devServer: {
