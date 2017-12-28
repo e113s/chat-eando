@@ -1,1 +1,11 @@
+#Secrets.js in Public Folder
 /public/secrets.js
+
+#Firebase files ignore
+/*.firebaserc
+
+#Firebase JSON
+/firebase.json
+
+#Secrect.js in Build Folder
+/build/secrets.js
