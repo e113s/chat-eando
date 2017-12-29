@@ -1,5 +1,8 @@
-import LoginContainer from './LoginContainer';
 import React, {Component} from 'react';
+import {Route, withRouter} from 'react-router-dom';
+import LoginContainer from './LoginContainer';
+import ChatContainer from './ChatContainer';
+import UserContainer from './UserContainer';
 import './app.css';
 
 class App extends Component{
@@ -10,6 +13,9 @@ class App extends Component{
             if(user){
                 this.setState({ user });
             }
+            else{
+                this.props.history.push('/login');
+            }
         });
     }
 
@@ -17,7 +23,9 @@ class App extends Component{
     render(){
         return(
             <div id="container">
-                <LoginContainer/>
+                <Route path = "/login"  component = {LoginContainer}/>
+                <Route exact path = "/" component = {ChatContainer} />
+                <Route path = "/users/:id" component = {UserContainer}/>
             </div>
         );
     }
@@ -29,4 +37,4 @@ const App = () => {
 };
 */
 
-export default App;  
+export default withRouter(App);  
