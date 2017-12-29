@@ -27,7 +27,7 @@ class LoginContainer extends Component {
             .auth()
             .signInWithEmailAndPassword(this.state.email, this.state.password)
             .then(res => {
-                console.log(res);
+                this.onlogin();
             })
             .catch(err => {
                 if(err.code === 'auth/user-not-found'){
@@ -49,6 +49,10 @@ class LoginContainer extends Component {
             console.log(err);
             this.setState({ error: 'Error al Registrarse.'});
         })
+    }
+
+    onlogin() {
+        this.props.history.push('/');
     }
     
     render(){
